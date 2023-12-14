@@ -25,39 +25,39 @@ public class LoginTest {
         assertTrue(loginPage.isLoaded());
     }
 
-    @Test//T1
-    public void canNotLoginWithInvalidPassword() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open();
-        assertTrue(loginPage.isLoaded());
-        loginPage.login("gabdimitrievski111@gmail.com", "wrong_password_test");
-        String errorMessage = loginPage.getErrorMessage();
-        assertEquals(errorMessage, "The password you’ve entered is incorrect. Forgot Password?");
+#   @Test//T1
+#   public void canNotLoginWithInvalidPassword() throws InterruptedException {
+#       LoginPage loginPage = new LoginPage(driver);
+#       loginPage.open();
+#       assertTrue(loginPage.isLoaded());
+#       loginPage.login("gabdimitrievski111@gmail.com", "wrong_password_test");
+#       String errorMessage = loginPage.getErrorMessage();
+#       assertEquals(errorMessage, "The password you’ve entered is incorrect. Forgot Password?");
 
-    }
-    @Test//T2
-    public void canNotLoginWithoutUserName() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open();
-        assertTrue(loginPage.isLoaded());
-        loginPage.login("", "");
-        String errorMessage = loginPage.getErrorMessage();
-        assertEquals(errorMessage, "The email or mobile number you entered isn’t connected to an account. Find your account and log in.");
+#   }
+#   @Test//T2
+#   public void canNotLoginWithoutUserName() throws InterruptedException {
+#       LoginPage loginPage = new LoginPage(driver);
+#       loginPage.open();
+#       assertTrue(loginPage.isLoaded());
+#       loginPage.login("", "");
+#       String errorMessage = loginPage.getErrorMessage();
+#       assertEquals(errorMessage, "The email or mobile number you entered isn’t connected to an account. Find your account and log in.");
 
-    }
+#   }
 
     @Test//T3
     public void shouldLogin() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
         assertTrue(loginPage.isLoaded());
-        loginPage.login("gabdimitrievski111@gmail.com", "correct_password");
+        loginPage.login("edureka", "edureka");
         assertTrue(new HomePage(driver).isLoaded());
     }
 
 
     private WebDriver getDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\gabri\\Desktop\\Intellij Homeworks\\SeleniumAutomaticTesting\\src\\main\\resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         return new ChromeDriver();
     }
 

@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     }
 
     public void open() {
-        driver.get("https://www.facebook.com/");
+        driver.get("http://192.168.1.54:3001/");
     }
 
     public boolean isLoaded() throws InterruptedException {
@@ -21,8 +21,8 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String user, String password) throws InterruptedException {
-        driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys(user);
+        driver.findElement(By.id("login")).clear();
+        driver.findElement(By.id("password")).sendKeys(edureka);
         Thread.sleep(5000);
         driver.findElement(By.id("pass")).sendKeys(password);
         Thread.sleep(5000);
